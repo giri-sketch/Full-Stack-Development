@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Interest Form</title>
+    <style>
+        body {
+            background-color: rgb(102, 148, 173);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .a4-page {
+            background-color: #c8e2de;
+            width: 210mm;
+            height: 297mm;
+            padding: 20mm;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+
+        #results {
+            margin-top: 20px;
+            border: 1px solid #19bb90;
+            padding: 10px;
+            background-color: #f1f8e9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #101111;
+            border-radius: 4px;
+            width: 100%;
+            background-color: #d9e3e3;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #0f1010;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #12b0e5;
+        }
+
+        button:focus {
+            outline: none;
+        }
+        #details {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: right;
+        }
+
+        #details h2 {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="details">
+        <h2>Name : Gopalakrishnan S</h2>
+        <br>
+        <h2>Reg No : 61781922102035</h2>
+    </div>
+    <div class="a4-page">
+
+        <div class="section">
+            <div class="section-title">Area of interest</div>
+            <label><input type="checkbox" name="job" value="Data Analyst">    Data Analyst    </label>
+            <label><input type="checkbox" name="job" value="Machine learning">Machine learning</label>
+            <label><input type="checkbox" name="job" value="Sap Developer">Sap Developer</label>
+            <label><input type="checkbox" name="job" value="App developer">App developer</label>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Select your gender</div>
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Others"> Others</label>
+
+        </div>
+
+        <div class="section">
+            <div class="section-title">Select sports</div>
+            <select id="language">
+                <option value="Java">Cricket</option>
+                <option value="Python">Football</option>
+                <option value="JavaScript">Vollyball</option>
+                <option value="C++">Hockey</option>
+                <option value="C">Kabaddi</option>
+                <option value="PHP">Tennis</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <button id="submit">Submit</button>
+        </div>
+
+        <div id="results"></div>
+
+    </div>
+    <script>
+        const submitButton = document.getElementById('submit');
+        const resultsDiv = document.getElementById('results');
+    
+        submitButton.addEventListener('click', () => {
+            let selectedJobs = Array.from(document.querySelectorAll('input[name="job"]:checked'))
+                .map(cb => cb.value);
+    
+            const selectedGender = document.querySelector('input[name="gender"]:checked')?.value || "Not selected";
+            const selectedLanguage = document.getElementById('language').value;
+    
+            resultsDiv.innerHTML = `
+                <p><strong>Area of Interest:</strong> ${selectedJobs.length > 0 ? selectedJobs.join(", ") : "Not selected"}</p>
+                <p><strong>Gender:</strong> ${selectedGender}</p>
+                <p><strong>Preferred Language:</strong> ${selectedLanguage}</p>
+            `;
+        });
+    </script>
+    
+
+</body>
+</html>
