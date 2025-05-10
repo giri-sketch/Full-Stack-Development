@@ -1,0 +1,128 @@
+import React from 'react';
+import './StudentIdCard.css';
+
+function StudentIdCard() {
+  return (
+    <div className="id-card-container">
+      <div className="id-card">
+        <div className="header">
+          <div className="year-range">2022-2026</div>
+          <div className="college-info">
+            SONA<br />
+            COLLEGE OF<br />
+            TECHNOLOGY
+          </div>
+          <div className="slogan">Learning is a Celebration!</div>
+        </div>
+
+        <div className="content">
+          <div className="title">STUDENT ID CARD</div>
+
+          <div className="details">
+            <div className="detail-row">
+              <span className="label">Name:</span>
+              <span className="value">Girivasan S</span>
+            </div>
+            <div className="detail-row">
+              <span className="label">Adm No:</span>
+              <span className="value">22CSEBE218</span>
+            </div>
+            <div className="detail-row">
+              <span className="label">Dept.:</span>
+              <span className="value">BE - Comp. Sci. & Engg.</span>
+            </div>
+          </div>
+
+          <div className="bottom-info">
+            <span className="adm-number">22CSEBE218</span>
+            <span className="principal">Principal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+<style>
+  /* StudentIdCard.css */
+.id-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Optional background for the page */
+  }
+  
+  .id-card {
+    width: 300px; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    font-family: sans-serif;
+    padding: 15px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .year-range {
+    font-size: 0.8em;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .college-info {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  
+  .slogan {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .value {
+    flex-grow: 1;
+    text-align: right;
+    padding-left: 10px;
+  }
+  
+  .bottom-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #555;
+  }
+  
+  .adm-number {
+    font-weight: bold;
+  }</style>
+export default StudentIdCard;
