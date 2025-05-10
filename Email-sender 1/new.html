@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1.1</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #A6CDC6, #FBF5DD);
+            text-align: center;
+            color: #09122C;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align:center;
+            padding: 10px 20px;
+            font-weight: bold;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 30px auto;
+            background: #DDA853;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: #BE3144;
+        }
+        .num {
+            width: 70px;
+            height: 70px;
+            background-color:#E17564;
+            margin: 20px auto;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .box:hover {
+            cursor: pointer;
+        }
+        .task-item {
+            cursor: pointer;
+            color:black;
+        }
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+    </style>
+    <script defer src="index.js"></script>
+</head>
+<body>
+
+  
+    <div class="container">
+        
+        <h2>1.Change Text</h2>     
+        <p id="message">Good Morning!!!</p>
+        <button onclick="changetext()">Submit</button>
+
+        <h2>2. House Hover</h2>
+        <div id="num" class="num" title="You are hovering over the box"></div>
+
+        <h2>3.Addition</h2>
+        <input type="number" id="num1"><br>
+        <input type="number" id="num2" ><br>
+        <button onclick="calculate()">Click</button>
+        <p id="result"></p>
+
+        <h2>4.To-Do-List</h2>
+        <input type="text" id="task" placeholder="Enter task"><br>
+        <button onclick="addTask()">Add Task</button><br>
+        <ol id="taskList"></ol>
+    </div>
+
+    <script>
+        function changetext() {
+           const name= document.getElementById("message") 
+           name.innerText = 'Girivasan';
+        }
+
+        let num = document.getElementById("num");
+
+        num.addEventListener("mousedown", function () {
+            num.style.backgroundColor = 'green';
+        });
+
+        num.addEventListener('mouseleave', function () {
+            num.style.backgroundColor = 'blue';
+        });
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let res = num1 + num2;
+            document.getElementById("result").innerHTML = 'Result: ' + res;
+        }
+
+        function addTask() {
+            let taskText = document.getElementById("task").value;
+            if (taskText.trim() !== "") {
+                let li = document.createElement("li");
+                li.innerText = taskText;
+                li.classList.add('task-item');
+                document.getElementById('taskList').appendChild(li);
+                document.getElementById('task').value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+#one
+{
+width: 100px;
+height: 100px;
+background-color:red;
+
+border-radius: 11px;
+border-color: black;
+border-style: dashed;
+}
+#num{
+    color: white;
+    background-color:navy;
+}
+#center{
+    color: black;
+    background-color: darkseagreen;
+}
