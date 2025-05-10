@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4 Form</title>
+    <style>
+        body {
+            background: linear-gradient(250deg,#0bc392,rgb(22, 79, 203));
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh;
+             */
+             height: 800px;
+            margin: 0;
+        }
+
+        .a4-page {
+            background-color: #daf1cb;
+            width: 210mm;
+            height: 297mm;
+            padding: 25mm;
+            box-shadow: 0 0 15px #00000033;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  
+            align-items: center;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #title-input {
+            padding: 8px;
+            border: 1px solid #66d7df;
+        }
+
+        #title-display {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .hover-box {
+            background-color: #46d54d;
+            padding: 15px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .hover-box:hover {
+            background-color: #46d54d;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #2c3e50;
+        }
+
+        .addition-container, .list-container {
+            margin-top: 25px;
+        }
+
+        .addition-container input[type="number"], .list-container input[type="text"] {
+            padding: 8px;
+            border: 1px solid #7f8c8d;
+        }
+
+        #submit, #add-number, #add-item, #title-submit {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 6px 4px;
+            cursor: pointer;
+        }
+
+        #submit {
+            background-color: #46d54d;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #e74c3c;
+        }
+
+        ul {
+            margin-top: 15px;
+            list-style-type: square;
+            padding-left: 25px;
+            color: #34495e;
+        }
+        #details {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: right;
+        }
+
+        #details h2 {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="details">
+        <h2>Name : Girivasan S</h2>
+        <br>
+        <h2>Reg No : 61781922102033</h2>
+    </div>
+    <div class="a4-page">
+        <div class="title-container">
+            <input type="text" id="title-input" placeholder="Enter Title">
+            <button id="title-submit">Submit Title</button>
+            <div id="title-display"></div>
+        </div>
+
+        <div class="hover-box">
+            Hover over me!
+        </div>
+
+        <div class="addition-container">
+            <div class="input-group">
+                <label for="num1">Number 1:</label>
+                <input type="number" id="num1" placeholder="Enter number 1">
+            </div>
+            <div class="input-group">
+                <label for="num2">Number 2:</label>
+                <input type="number" id="num2" placeholder="Enter number 2">
+            </div>
+            <button id="add-number">Add</button>
+            <div id="result"></div>
+        </div>
+
+        <div class="list-container">
+            <div class="input-group">
+                <label for="list-item">List Item:</label>
+                <input type="text" id="list-item" placeholder="Enter list item">
+            </div>
+            <button id="add-item">Add to List</button>
+            <ul id="item-list"></ul>
+        </div>
+
+    </div>
+
+    <script>
+        const titleInput = document.getElementById('title-input');
+        const titleSubmit = document.getElementById('title-submit');
+        const titleDisplay = document.getElementById('title-display');
+
+        titleSubmit.addEventListener('click', () => {
+            titleDisplay.textContent = titleInput.value;
+        });
+
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const addNumberButton = document.getElementById('add-number');
+        const resultDiv = document.getElementById('result');
+
+        addNumberButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value) || 0;
+            const num2 = parseFloat(num2Input.value) || 0;
+            const sum = num1 + num2;
+            resultDiv.textContent = "Result: " + sum;
+        });
+
+        const listItemInput = document.getElementById('list-item');
+        const addItemButton = document.getElementById('add-item');
+        const itemList = document.getElementById('item-list');
+
+        addItemButton.addEventListener('click', () => {
+            const newItemText = listItemInput.value.trim();
+            if (newItemText !== "") {
+                const newItem = document.createElement('li');
+                newItem.textContent = newItemText;
+                itemList.appendChild(newItem);
+                listItemInput.value = "";
+            }
+        });
+    </script>
+
+</body>
+</html>
